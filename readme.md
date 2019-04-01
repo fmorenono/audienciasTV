@@ -1,19 +1,19 @@
-# Pr·ctica 1: Web scraping. Audiencias
+# Pr√°ctica 1: Web scraping. Audiencias
 
-## DescripciÛn
+## Descripci√≥n
 
-ExtracciÛn de datos de una web
-Esta pr·ctica se ha realizado bajo el contexto de la asignatura _TipologÌa y ciclo de vida de los datos_, perteneciente al M·ster en Ciencia de Datos de la Universitat Oberta de Catalunya. En ella, se aplican tÈcnicas de _web scraping_ mediante el lenguaje de programaciÛn Python para extraer asÌ datos de la web _PlaneCrashInfo_ y generar un _dataset_.
+Extracci√≥n de datos de una web
+Esta pr√°ctica se ha realizado bajo el contexto de la asignatura _Tipolog√≠a y ciclo de vida de los datos_, perteneciente al M√°ster en Ciencia de Datos de la Universitat Oberta de Catalunya. En ella, se aplican t√©cnicas de _web scraping_ mediante el lenguaje de programaci√≥n Python para extraer as√≠ datos de la web _https://ecoteuve.eleconomista.es_ y generar un _dataset_.
 
 ## Equipo
 
-**Victor Manuel V·squez Rivas** y **Francisco Javier Moreno Hern·ndez**.
+**Victor Manuel V√°squez Rivas** y **Francisco Javier Moreno Hern√°ndez**.
 
-## CÛdigo Fuente
-Directorio con los cÛdigos en Python.
+## C√≥digo Fuente
+Directorio con los c√≥digos en Python.
 
 ## Csv
-Directorio con el fichero de datos extraÌdos.
+Directorio con el fichero de datos extra√≠dos.
 
 ## Carpeta Doc
 Directorio con los documento PDF entregado.
