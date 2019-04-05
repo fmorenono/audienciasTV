@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request,unicodedata,_thread
 import re
 import time
 from datetime import datetime,timedelta
@@ -17,13 +17,13 @@ class ProgramasTelevisivos():
 
 	def presentacion(self):
 		start_time = time.strftime("%H:%M:%S") 
-		print "Bienvenidos al web scraping de " + self.url
-		print "Inicio del programa: " + str(start_time) + " hrs."
+		print("Bienvenidos al web scraping de " + self.url)
+		print("Inicio del programa: " + str(start_time) + " hrs.")
 
 
 	def fin(self):
 		end_time = time.strftime("%H:%M:%S") 
-		print "Fin del programa: " + str(end_time) + " hrs."
+		print("Fin del programa: " + str(end_time) + " hrs.")
 
 	def buscaLista(self):
 		html = self.descargar_html(self.url + self.subdomainCanales)
@@ -38,11 +38,11 @@ class ProgramasTelevisivos():
 		#for enlace in listaCanales:
 		#    print self.url + enlace
 
-   		return listaCanales
+		return listaCanales
 
 
 	def descargar_html(self, url):
-		response = urllib2.urlopen(url)
+		response = urllib.request.urlopen(url)
 		html = response.read()
 		return html
 		
@@ -83,9 +83,9 @@ class ProgramasTelevisivos():
 		#k=0
 		rows = mydiv[0].findAll('tr')
 		for row in rows:
-		  	tds = row.findAll('td')
-		  	self.datos.append([])
-		  	j=0
+			tds = row.findAll('td')
+			self.datos.append([])
+			j=0
 			for td in tds:
 				if j==0:
 					self.datos[self.k].append(fecha)
@@ -98,7 +98,7 @@ class ProgramasTelevisivos():
 	def mostrarDatos(self):
 		for i in range(len(self.datos)):
 			for j in range(len(self.datos[i])):
-				print self.datos[i][j]
+				print(self.datos[i][j])
 				
 
 	def guardarDatos(self, filename):

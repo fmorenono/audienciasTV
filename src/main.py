@@ -5,10 +5,10 @@ output_file = "dataset.csv"
 
 rastreo = ProgramasTelevisivos();
 rastreo.presentacion();
-print "Obtenemos La lista de canales"
+print("Obtenemos La lista de canales")
 listaCanales = rastreo.buscaLista(); #Obtenemos el listado de los canales
 lista = rastreo.urlListaAudiencia(listaCanales);
-print "Buscamos el link por canal, fecha y descargamos la informacion"
+print("Buscamos el link por canal, fecha y descargamos la informacion")
 
 #i=0
 # Recorremos el listado de audiencias
