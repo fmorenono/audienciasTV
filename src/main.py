@@ -2,6 +2,7 @@ import time
 from rastreo import ProgramasTelevisivos
 
 output_file = "dataset.csv"
+output_file_total = "datasetTotal.csv"
 
 rastreo = ProgramasTelevisivos();
 rastreo.presentacion();
@@ -23,5 +24,5 @@ for link in lista:
 
 #rastreo.mostrarDatos();
 
-rastreo.guardarDatos(output_file)
+rastreo.guardarDatos(output_file,output_file_total)
 rastreo.fin();

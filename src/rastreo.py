@@ -12,7 +12,9 @@ class ProgramasTelevisivos():
 		self.subdomainCanales = "/canales/"
 		self.subdomainProgramacion = "/audiencias-programas/"
 		self.datos =[]
+		self.datosTotales =[]
 		self.k=0
+		self.kTotales=0
 
 
 	def presentacion(self):
@@ -33,10 +35,10 @@ class ProgramasTelevisivos():
 		listaCanales = re.findall('href="(/cadena/.*?)"', str(soup))
 
 		#Mostramos en pantalla la lista de canales que analizaremos
-		#print "La lista de canales es la siguiente: "
+		print("La lista de canales es la siguiente: ")
 		#print ""
-		#for enlace in listaCanales:
-		#    print self.url + enlace
+		for enlace in listaCanales:
+		    print (self.url + enlace)
 
 		return listaCanales
 
@@ -68,7 +70,13 @@ class ProgramasTelevisivos():
 				lista.append(linkAudiencias+";"+fecha+";"+link)
 			 	
 		return lista
-
+		
+		
+	def byte_to_str(self,bytes_or_str):
+		if isinstance(bytes_or_str, bytes): #check if its in bytes
+			return bytes_or_str.decode('utf-8')
+		else:
+			return bytes_or_str
 
 	def descargaAudiencia(self,enlace):
 
@@ -94,14 +102,26 @@ class ProgramasTelevisivos():
 				j+=1
 			self.k += 1
 
+		myspan = soup.findAll("span", {"class": "share-acumulado"})	
+		for row in myspan:
+			print("myspan: "+self.byte_to_str(row.text.encode("utf-8")))
+			self.datosTotales.append([])
+			self.datosTotales[self.kTotales].append(fecha)
+			self.datosTotales[self.kTotales].append(canal)
+			self.datosTotales[self.kTotales].append(row.text.encode("utf-8"))
+			self.kTotales += 1
+			
+		
 
 	def mostrarDatos(self):
 		for i in range(len(self.datos)):
 			for j in range(len(self.datos[i])):
 				print(self.datos[i][j])
-				
 
-	def guardarDatos(self, filename):
+
+					
+
+	def guardarDatos(self, filename,filename2):
 		file = open("../csv/" + filename, "w+");
 		i = 0;
 		j = 0;
@@ -109,9 +129,23 @@ class ProgramasTelevisivos():
 		for i in range(len(self.datos)):
 			count = 0
 			for j in range(len(self.datos[i])):
-				file.write(self.datos[i][j] + ";");
+				dd=self.byte_to_str((self.datos[i][j]))
+				file.write(dd+ ';') 
+				
 				count+=1;
 			if count > 0:
 				file.write("\n");
 			
-
+		file = open("../csv/" + filename2, "w+");
+		i = 0;
+		j = 0;
+		file.write("Fecha;Canal;Share(%);\n");
+		for i in range(len(self.datosTotales)):
+			count = 0
+			for j in range(len(self.datosTotales[i])):
+				dd=self.byte_to_str((self.datosTotales[i][j]))
+				file.write(dd+ ';') 
+				
+				count+=1;
+			if count > 0:
+				file.write("\n");
