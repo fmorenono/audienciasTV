@@ -2,7 +2,7 @@ import time
 from rastreo import ProgramasTelevisivos
 
 output_file = "dataset.csv"
-output_file_total = "datasetTotal.csv"
+output_file_total = "canales.csv"
 
 rastreo = ProgramasTelevisivos();
 rastreo.presentacion();
