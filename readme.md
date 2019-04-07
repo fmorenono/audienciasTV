@@ -20,5 +20,6 @@ Directorio con los documento PDF entregado (respuestas.pdf) y otros documentos d
 
 ## Ejecución del programa
 Para la ejecución del programa deberá tener instalado python version 3.5.2. 
+
 Deberá ejecutar el siguiente comando: 
 python3 main.py
