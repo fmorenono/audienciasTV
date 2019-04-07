@@ -10,16 +10,16 @@ Esta práctica se ha realizado bajo el contexto de la asignatura _Tipología y c
 **Victor Manuel Vásquez Rivas** y **Francisco Javier Moreno Hernández**.
 
 ## Código Fuente
-Directorio con los códigos en Python.
+Directorio src con los códigos en Python.
 
 ## Csv
-Directorio con el fichero de datos extraídos.
+Directorio csv con el fichero de datos extraídos.
 
 ## Carpeta Doc
-Directorio con los documento PDF entregado (respuestas.pdf) y otros documentos de trabajo interno.
+Directorio doc con los documento PDF entregado (respuestas.pdf) y otros documentos de trabajo interno.
 
 ## Ejecución del programa
 Para la ejecución del programa deberá tener instalado python version 3.5.2. 
 
-Deberá ejecutar el siguiente comando: 
+Deberá ejecutar el siguiente comando en el directorio src: 
 python3 main.py
