@@ -16,5 +16,5 @@ Directorio con los códigos en Python.
 Directorio con el fichero de datos extraídos.
 
 ## Carpeta Doc
-Directorio con los documento PDF entregado y otros documentos de trabajo interno.
+Directorio con los documento PDF entregado (respuestas.pdf) y otros documentos de trabajo interno.
 
