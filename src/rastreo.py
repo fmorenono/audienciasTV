@@ -36,11 +36,12 @@ class ProgramasTelevisivos():
 
 		#Mostramos en pantalla la lista de canales que analizaremos
 		print("La lista de canales es la siguiente: ")
-		#print ""
-		for enlace in listaCanales:
+
+		tmLista = sorted(list(set(listaCanales)))
+		for enlace in tmLista:
 		    print (self.url + enlace)
 
-		return listaCanales
+		return tmLista
 
 
 	def descargar_html(self, url):
@@ -105,10 +106,13 @@ class ProgramasTelevisivos():
 		myspan = soup.findAll("span", {"class": "share-acumulado"})	
 		for row in myspan:
 			print("myspan: "+self.byte_to_str(row.text.encode("utf-8")))
+			porcentaje = ""
+			porcentaje = row.text
+			porcentaje = porcentaje.replace("Share día: ","").replace("Share dĂ­a: ","").replace("%","")
 			self.datosTotales.append([])
 			self.datosTotales[self.kTotales].append(fecha)
 			self.datosTotales[self.kTotales].append(canal)
-			self.datosTotales[self.kTotales].append(row.text.encode("utf-8"))
+			self.datosTotales[self.kTotales].append(porcentaje.encode("utf-8") )
 			self.kTotales += 1
 			
 		
@@ -139,6 +143,7 @@ class ProgramasTelevisivos():
 		file = open("../csv/" + filename2, "w+");
 		i = 0;
 		j = 0;
+	
 		file.write("Fecha;Canal;Share(%);\n");
 		for i in range(len(self.datosTotales)):
 			count = 0
