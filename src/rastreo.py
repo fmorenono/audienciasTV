@@ -27,6 +27,19 @@ class ProgramasTelevisivos():
 		end_time = time.strftime("%H:%M:%S") 
 		print("Fin del programa: " + str(end_time) + " hrs.")
 
+
+	# Busca y muestra el archivo robot del sitio
+	def mostrarArchivoRobots(self):
+		html = self.descargar_html("https://www.eleconomista.es/robots.txt")
+		soup  = BeautifulSoup(html, 'html.parser')
+		print ("Archivo robots.txt")
+		print (soup)
+		print ("Fin archivo robots.txt")
+		
+
+
+	# Busca la lista de canales que se recorreran
+	# para la obtencion de la informacion
 	def buscaLista(self):
 		html = self.descargar_html(self.url + self.subdomainCanales)
 		soup  = BeautifulSoup(html, 'html.parser')
@@ -44,12 +57,19 @@ class ProgramasTelevisivos():
 		return tmLista
 
 
+	# Obtiene el Html de la url consultada
+	# Tambien cambiamos el user_agent que viene por defecto
 	def descargar_html(self, url):
-		response = urllib.request.urlopen(url)
+		user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
+		headers = {'User-Agent': user_agent}
+		request = urllib.request.Request(url,headers=headers)
+		response = urllib.request.urlopen(request)
 		html = response.read()
 		return html
 		
 
+	# Guarda en un array los link de los distintos canales
+	# que se recorreran para buscar la informacion
 	def urlListaAudiencia(self,listaCanales):
 		lista = []
 		mesAnio = datetime.now().strftime("%Y-%m")
@@ -72,13 +92,18 @@ class ProgramasTelevisivos():
 			 	
 		return lista
 		
-		
+	
+	# Transformacion de dato a utf-8
 	def byte_to_str(self,bytes_or_str):
 		if isinstance(bytes_or_str, bytes): #check if its in bytes
 			return bytes_or_str.decode('utf-8')
 		else:
 			return bytes_or_str
 
+
+	# Obtiene la informacion del link que se le envia
+	# Esta informacion es sobre la audiencia por canal 
+	# y sobre los programas relacionados
 	def descargaAudiencia(self,enlace):
 
 		dat = enlace.split(";")
@@ -116,7 +141,8 @@ class ProgramasTelevisivos():
 			self.kTotales += 1
 			
 		
-
+	# Muestra en pantalla la informacion obtenida
+	# de los distintos canales y sus programas
 	def mostrarDatos(self):
 		for i in range(len(self.datos)):
 			for j in range(len(self.datos[i])):
@@ -124,7 +150,8 @@ class ProgramasTelevisivos():
 
 
 					
-
+	# Guarda la informacion en archivos de salida
+	# de tipo .csv
 	def guardarDatos(self, filename,filename2):
 		file = open("../csv/" + filename, "w+");
 		i = 0;
