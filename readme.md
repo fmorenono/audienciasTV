@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Extracción de datos de una web
+Extracción de datos de una web.
 Esta práctica se ha realizado bajo el contexto de la asignatura _Tipología y ciclo de vida de los datos_, perteneciente al Máster en Ciencia de Datos de la Universitat Oberta de Catalunya. Se aplicaron técnicas de _web scraping_ mediante el lenguaje de programación Python para extraer los datos de la web _https://ecoteuve.eleconomista.es_ y generar un _dataset_. Los datos corresponden a datos televisivos de canales de España, en donde se presenta información de sus programadas, espectadores y porcentaje de audiencias por programa y canal.
 
 ## Equipo
